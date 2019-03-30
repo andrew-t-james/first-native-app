@@ -1,5 +1,7 @@
 import React from "react";
-import { StyleSheet, TextInput, Text, View, Button } from "react-native";
+import { StyleSheet, TextInput, View, Button } from "react-native";
+import ListItem from "./src/components/ListItem";
+import PlaceInput from "./src/components/PlaceInput";
 
 export default class App extends React.Component {
   state = {
@@ -20,7 +22,8 @@ export default class App extends React.Component {
     }
 
     this.setState(prevState => ({
-      places: prevState.places.concat(prevState.placeName)
+      places: prevState.places.concat(prevState.placeName),
+      placeName: ""
     }));
   };
 
@@ -29,22 +32,14 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <TextInput
-            name="placeName"
-            value={placeName}
-            onChangeText={this.placeNameUpdater}
-            style={styles.placeInput}
-          />
-          <Button
-            style={styles.placeButton}
-            onPress={this.placeSubmitHandler}
-            title="Add"
-          />
-        </View>
-        <View>
+        <PlaceInput
+          placeNameUpdater={this.placeNameUpdater}
+          placeSubmitHandler={this.placeSubmitHandler}
+          placeName={placeName}
+        />
+        <View style={styles.listContainer}>
           {places.map((place, index) => (
-            <Text key={index}>{place}</Text>
+            <ListItem placeName={place} key={index} />
           ))}
         </View>
       </View>
@@ -54,24 +49,15 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 100,
+    paddingTop: 100,
+    paddingLeft: 20,
+    paddingRight: 20,
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start"
   },
-  inputContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+  listContainer: {
     width: "100%"
-  },
-  placeInput: {
-    width: "70%",
-    borderColor: "black",
-    borderWidth: 1
-  },
-  placeButton: {
-    width: "30%"
   }
 });
