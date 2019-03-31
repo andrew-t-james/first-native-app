@@ -27,6 +27,11 @@ export default class App extends React.Component {
     }));
   };
 
+  deletePlace = index => {
+    this.setState(prevState => ({
+      places: prevState.places.filter((place, currIndex) => currIndex !== index)
+    }));
+  };
   render() {
     const { placeName, places } = this.state;
 
