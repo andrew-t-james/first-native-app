@@ -22,7 +22,7 @@ export default class App extends React.Component {
     }
 
     this.setState(prevState => ({
-      places: prevState.places.concat(prevState.placeName),
+      places: prevState.places.concat(prevState.placeName.trim()),
       placeName: ""
     }));
   };
