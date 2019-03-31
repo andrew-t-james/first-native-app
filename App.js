@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import ListItem from "./src/components/ListItem";
 import PlaceInput from "./src/components/PlaceInput";
+import PlaceList from "./src/components/PlaceList";
 
 export default class App extends React.Component {
   state = {
@@ -32,6 +32,7 @@ export default class App extends React.Component {
       places: prevState.places.filter((place, currIndex) => currIndex !== index)
     }));
   };
+
   render() {
     const { placeName, places } = this.state;
 
@@ -57,8 +58,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start"
-  },
-  listContainer: {
-    width: "100%"
   }
 });
