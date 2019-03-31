@@ -37,11 +37,7 @@ export default class App extends React.Component {
           placeSubmitHandler={this.placeSubmitHandler}
           placeName={placeName}
         />
-        <View style={styles.listContainer}>
-          {places.map((place, index) => (
-            <ListItem placeName={place} key={index} />
-          ))}
-        </View>
+        <PlaceList places={places} deletePlace={this.deletePlace} />
       </View>
     );
   }
