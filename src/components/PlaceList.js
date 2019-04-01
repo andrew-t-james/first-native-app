@@ -1,16 +1,20 @@
 import React from "react";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, FlatList } from "react-native";
 import ListItem from "./ListItem";
 
 const PlaceList = ({ places, deletePlace }) => {
-  const placesOutput = places.map((place, index) => (
-    <ListItem
-      placeName={place}
-      key={index}
-      onItemPressed={() => deletePlace(index)}
+  return (
+    <FlatList
+      style={styles.listContainer}
+      data={places}
+      renderItem={info => (
+        <ListItem
+          placeName={info.item.name}
+          onItemPressed={() => deletePlace(info.item.key)}
+        />
+      )}
     />
-  ));
-  return <ScrollView style={styles.listContainer}>{placesOutput}</ScrollView>;
+  );
 };
 
 const styles = StyleSheet.create({
