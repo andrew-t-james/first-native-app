@@ -3,6 +3,8 @@ import { StyleSheet, View } from "react-native";
 import PlaceInput from "./src/components/PlaceInput";
 import PlaceList from "./src/components/PlaceList";
 
+import placeImage from "./src/assets/beach.jpg";
+
 export default class App extends React.Component {
   state = {
     places: []
@@ -12,7 +14,8 @@ export default class App extends React.Component {
     this.setState(prevState => ({
       places: prevState.places.concat({
         key: Math.random(),
-        name: placeName.trim()
+        name: placeName.trim(),
+        image: placeImage
       })
     }));
   };
