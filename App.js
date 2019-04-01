@@ -5,44 +5,30 @@ import PlaceList from "./src/components/PlaceList";
 
 export default class App extends React.Component {
   state = {
-    placeName: "",
     places: []
   };
 
-  placeNameUpdater = value => {
-    this.setState({
-      placeName: value
-    });
-  };
-
-  placeSubmitHandler = () => {
-    const { placeName } = this.state;
-    if (placeName.trim() === "") {
-      return;
-    }
-
+  onPlaceAdded = placeName => {
     this.setState(prevState => ({
-      places: prevState.places.concat(prevState.placeName.trim()),
-      placeName: ""
+      places: prevState.places.concat({
+        key: Math.random(),
+        name: placeName.trim()
+      })
     }));
   };
 
-  deletePlace = index => {
+  deletePlace = key => {
     this.setState(prevState => ({
-      places: prevState.places.filter((place, currIndex) => currIndex !== index)
+      places: prevState.places.filter(place => place.key !== key)
     }));
   };
 
   render() {
-    const { placeName, places } = this.state;
+    const { places } = this.state;
 
     return (
       <View style={styles.container}>
-        <PlaceInput
-          placeNameUpdater={this.placeNameUpdater}
-          placeSubmitHandler={this.placeSubmitHandler}
-          placeName={placeName}
-        />
+        <PlaceInput onPlaceAdded={this.onPlaceAdded} />
         <PlaceList places={places} deletePlace={this.deletePlace} />
       </View>
     );
