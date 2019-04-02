@@ -6,7 +6,7 @@ const ListItem = ({ placeName, placeImage, onItemPressed }) => (
     <View style={styles.listItem}>
       <Image
         source={placeImage}
-        resizeMethod="contain"
+        resizeMode="contain"
         style={styles.placeImage}
       />
       <Text>{placeName}</Text>
@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
   placeImage: {
     marginRight: 10,
     maxHeight: 30,
-    width: 30
+    width: 30,
+    height: 30
   }
 });
 
