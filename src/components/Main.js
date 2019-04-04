@@ -12,30 +12,6 @@ import {
 } from "../store/actions/";
 
 class Main extends React.Component {
-  // state = {
-  //   places: [],
-  //   selectedPlace: null
-  // };
-
-  // placeSelectedHandler = key => {
-  //   this.setState(prevState => ({
-  //     selectedPlace: prevState.places.find(place => place.key === key)
-  //   }));
-  // };
-
-  // onItemDeleted = () => {
-  //   this.setState(prevState => ({
-  //     places: prevState.places.filter(
-  //       place => place.key !== prevState.selectedPlace.key
-  //     ),
-  //     selectedPlace: null
-  //   }));
-  // };
-
-  // onModalClose = () => {
-  //   this.setState({ selectedPlace: null });
-  // };
-
   render() {
     const { places, selectedPlace } = this.props;
 
