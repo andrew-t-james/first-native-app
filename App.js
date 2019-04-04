@@ -28,9 +28,19 @@ export default class App extends React.Component {
     this.setState(prevState => ({
       selectedPlace: prevState.places.find(place => place.key === key)
     }));
-    // this.setState(prevState => ({
-    //   places: prevState.places.filter(place => place.key !== key)
-    // }));
+  };
+
+  onItemDeleted = () => {
+    this.setState(prevState => ({
+      places: prevState.places.filter(
+        place => place.key !== prevState.selectedPlace.key
+      ),
+      selectedPlace: null
+    }));
+  };
+
+  onModalClose = () => {
+    this.setState({ selectedPlace: null });
   };
 
   render() {
@@ -38,7 +48,11 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
-        <PlaceDetail selectedPlace={selectedPlace} />
+        <PlaceDetail
+          selectedPlace={selectedPlace}
+          onItemDeleted={this.onItemDeleted}
+          onModalClose={this.onModalClose}
+        />
         <PlaceInput onPlaceAdded={this.onPlaceAdded} />
         <PlaceList places={places} onItemSelected={this.placeSelectedHandler} />
       </View>
