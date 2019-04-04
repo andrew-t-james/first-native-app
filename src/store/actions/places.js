@@ -16,7 +16,7 @@ export const deletePlace = () => ({
 
 export const selectPlace = key => ({
   type: SELECT_PLACE,
-  placeKey: key
+  key
 });
 
 export const deselectPlace = () => ({
