@@ -3,11 +3,11 @@ import { AppRegistry } from "react-native";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 
-import configureStore from "./src/store/configureStore";
+import rootReducer from "./src/store/configureStore";
 import Main from "./src/components/Main";
 
 class App extends React.Component {
-  store = createStore(configureStore);
+  store = createStore(rootReducer);
 
   render() {
     return (
