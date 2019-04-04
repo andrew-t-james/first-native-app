@@ -1,73 +1,23 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import PlaceInput from "./src/components/PlaceInput";
-import PlaceList from "./src/components/PlaceList";
-import PlaceDetail from "./src/components/PlaceDetail";
+import { AppRegistry } from "react-native";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
 
-import placeImage from "./src/assets/beach.jpg";
+import configureStore from "./src/store/configureStore";
+import Main from "./src/components/Main";
 
-export default class App extends React.Component {
-  state = {
-    places: [],
-    selectedPlace: null
-  };
-
-  onPlaceAdded = placeName => {
-    this.setState(prevState => ({
-      places: prevState.places.concat({
-        key: Math.random(),
-        name: placeName.trim(),
-        image: {
-          uri: "https://bit.ly/2FZA8gE"
-        }
-      })
-    }));
-  };
-
-  placeSelectedHandler = key => {
-    this.setState(prevState => ({
-      selectedPlace: prevState.places.find(place => place.key === key)
-    }));
-  };
-
-  onItemDeleted = () => {
-    this.setState(prevState => ({
-      places: prevState.places.filter(
-        place => place.key !== prevState.selectedPlace.key
-      ),
-      selectedPlace: null
-    }));
-  };
-
-  onModalClose = () => {
-    this.setState({ selectedPlace: null });
-  };
+class App extends React.Component {
+  store = createStore(configureStore);
 
   render() {
-    const { places, selectedPlace } = this.state;
-
     return (
-      <View style={styles.container}>
-        <PlaceDetail
-          selectedPlace={selectedPlace}
-          onItemDeleted={this.onItemDeleted}
-          onModalClose={this.onModalClose}
-        />
-        <PlaceInput onPlaceAdded={this.onPlaceAdded} />
-        <PlaceList places={places} onItemSelected={this.placeSelectedHandler} />
-      </View>
+      <Provider store={this.store}>
+        <Main />
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 100,
-    paddingLeft: 20,
-    paddingRight: 20,
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "flex-start"
-  }
-});
+AppRegistry.registerComponent("App", () => App);
+
+export default App;
