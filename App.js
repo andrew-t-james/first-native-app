@@ -3,8 +3,9 @@ import { AppRegistry } from "react-native";
 import { Provider } from "react-redux";
 import { createStore, compose } from "redux";
 
+import AppContainer from "./src/screens/";
+
 import rootReducer from "./src/store/configureStore";
-import Main from "./src/components/Main";
 
 let composeEnhancers = compose;
 
@@ -18,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={this.store}>
-        <Main />
+        <AppContainer />
       </Provider>
     );
   }
