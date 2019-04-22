@@ -9,6 +9,7 @@ const PlaceList = ({ places, onItemSelected }) => {
       data={places}
       renderItem={info => (
         <ListItem
+          key={`${info.item.name}-${info.item.key}`}
           placeImage={info.item.image}
           placeName={info.item.name}
           onItemPressed={() => onItemSelected(info.item.key)}
