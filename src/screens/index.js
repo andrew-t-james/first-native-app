@@ -15,14 +15,14 @@ import { Ionicons } from "@expo/vector-icons";
 import Main from "../components/Main";
 import SignInScreen from "./SignInScreen";
 import AuthLoadingScreen from "./AuthLoadingScreen";
-import SharePlace from "./SharePlace";
+import SharePlaceScreen from "./SharePlaceScreen";
 
 const AuthStack = createStackNavigator({ SignIn: SignInScreen });
 
 const TabNavigator = createBottomTabNavigator(
   {
     Home: Main,
-    SharePlace: SharePlace
+    SharePlace: SharePlaceScreen
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -33,13 +33,13 @@ const TabNavigator = createBottomTabNavigator(
 
         switch (routeName) {
           case "Home":
-            iconName = `md-map`;
+            iconName = "md-map";
             break;
           case "SharePlace":
-            iconName = `md-share-alt`;
+            iconName = "md-share-alt";
             break;
           default:
-            iconName = `md-map`;
+            iconName = "md-map";
         }
         return <Ionicons size={20} name={iconName} color={tintColor} />;
       }
