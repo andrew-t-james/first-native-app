@@ -49,7 +49,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onAddPlace: name => dispatch(addPlace(name)),
   onItemDeleted: () => dispatch(deletePlace()),
-  onItemSelected: key => dispatch(selectPlace(key.toString())),
+  onItemSelected: key => dispatch(selectPlace(key)),
   onDeselectPlace: () => dispatch(deselectPlace())
 });
 
