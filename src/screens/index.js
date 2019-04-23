@@ -15,7 +15,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Main from "../components/Main";
 import SignInScreen from "./SignInScreen";
 import AuthLoadingScreen from "./AuthLoadingScreen";
-import SettingsScreen from "./SettingsScreen";
+import SharePlace from "./SharePlace";
 
 const AuthStack = createStackNavigator({ SignIn: SignInScreen });
 
