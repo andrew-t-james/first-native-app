@@ -30,10 +30,16 @@ const TabNavigator = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let IconComponent = Ionicons;
         let iconName;
-        if (routeName === "Home") {
-          iconName = `ios-information-circle${focused ? "" : "-outline"}`;
-        } else if (routeName === "Settings") {
-          iconName = `ios-options`;
+
+        switch (routeName) {
+          case "Home":
+            iconName = `md-map`;
+            break;
+          case "SharePlace":
+            iconName = `md-share-alt`;
+            break;
+          default:
+            iconName = `md-map`;
         }
         return <Ionicons size={20} name={iconName} color={tintColor} />;
       }
