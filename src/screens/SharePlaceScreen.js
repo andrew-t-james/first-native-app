@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import SharePlace from "../components/SharePlace";
 
 class SharePlaceScreen extends Component {
   render() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Share Place!</Text>
-      </View>
-    );
+    return <SharePlace />;
   }
 }
 
