@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
-class SharePlace extends Component {
+class SharePlaceScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -11,4 +11,4 @@ class SharePlace extends Component {
   }
 }
 
-export default SharePlace;
+export default SharePlaceScreen;
