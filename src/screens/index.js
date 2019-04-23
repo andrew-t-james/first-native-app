@@ -22,7 +22,7 @@ const AuthStack = createStackNavigator({ SignIn: SignInScreen });
 const TabNavigator = createBottomTabNavigator(
   {
     Home: Main,
-    Settings: SettingsScreen
+    SharePlace: SharePlace
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
