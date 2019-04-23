@@ -31,7 +31,7 @@ class Main extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 10,
+    paddingTop: 80,
     paddingLeft: 20,
     paddingRight: 20,
     flex: 1,
