@@ -20,7 +20,7 @@ class PlaceInput extends Component {
 
     await this.props.onPlaceAdded(this.state.placeName);
     this.setState({ placeName: "" });
-    await this.props.navigation.navigate("Home");
+    this.props.navigation.navigate("Home");
   };
 
   render() {
