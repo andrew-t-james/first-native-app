@@ -16,8 +16,11 @@ import Main from "../components/Main";
 import SignInScreen from "./SignInScreen";
 import AuthLoadingScreen from "./AuthLoadingScreen";
 import SharePlaceScreen from "./SharePlaceScreen";
+import PlaceDetailScreen from "./PlaceDetailScreen";
 
-const AuthStack = createStackNavigator({ SignIn: SignInScreen });
+const AuthStack = createStackNavigator({
+  SignIn: SignInScreen
+});
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -56,7 +59,8 @@ export default createAppContainer(
     {
       AuthLoading: AuthLoadingScreen,
       App: TabNavigator,
-      Auth: AuthStack
+      Auth: AuthStack,
+      PlaceDetail: PlaceDetailScreen
     },
     {
       initialRouteName: "AuthLoading"
