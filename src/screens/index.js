@@ -39,7 +39,7 @@ const TabNavigator = createBottomTabNavigator(
             iconName = "md-share-alt";
             break;
           default:
-            iconName = "md-map";
+            null;
         }
         return <Ionicons size={20} name={iconName} color={tintColor} />;
       }
