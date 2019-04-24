@@ -1,9 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { StyleSheet, View } from "react-native";
-import PlaceInput from "./PlaceInput";
 import PlaceList from "./PlaceList";
-import PlaceDetail from "./PlaceDetail";
 import {
   addPlace,
   selectPlace,
@@ -11,18 +9,12 @@ import {
   deletePlace
 } from "../store/actions/";
 
-class Main extends React.Component {
+class Main extends Component {
   render() {
-    const { places, selectedPlace } = this.props;
+    const { places } = this.props;
 
     return (
       <View style={styles.container}>
-        <PlaceDetail
-          selectedPlace={selectedPlace}
-          onItemDeleted={this.props.onItemDeleted}
-          onModalClose={this.props.onDeselectPlace}
-        />
-        <PlaceInput onPlaceAdded={this.props.onAddPlace} />
         <PlaceList places={places} onItemSelected={this.props.onItemSelected} />
       </View>
     );
