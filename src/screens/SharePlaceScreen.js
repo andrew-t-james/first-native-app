@@ -1,10 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import SharePlace from "../components/SharePlace";
 
-class SharePlaceScreen extends Component {
-  render() {
-    return <SharePlace />;
-  }
-}
+const SharePlaceScreen = () => <SharePlace />;
 
 export default SharePlaceScreen;
