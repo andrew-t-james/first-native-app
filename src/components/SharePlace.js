@@ -1,10 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { connect } from "react-redux";
+import { View, StyleSheet } from "react-native";
 
-const SharePlace = () => {
+import PlaceInput from "../components/PlaceInput";
+import { addPlace } from "../store/actions";
+
+const SharePlace = ({ onPlaceAdded }) => {
   return (
     <View style={styles.container}>
-      <Text>Share Place</Text>
+      <PlaceInput onPlaceAdded={onPlaceAdded} />
     </View>
   );
 };
@@ -19,4 +23,11 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SharePlace;
+const mapDispatchToProps = dispatch => ({
+  onPlaceAdded: placeName => dispatch(addPlace(placeName))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SharePlace);
