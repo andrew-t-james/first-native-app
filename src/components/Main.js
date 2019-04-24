@@ -2,20 +2,23 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { StyleSheet, View } from "react-native";
 import PlaceList from "./PlaceList";
-import {
-  addPlace,
-  selectPlace,
-  deselectPlace,
-  deletePlace
-} from "../store/actions/";
+import { addPlace, deletePlace } from "../store/actions/";
+import { withNavigation } from "react-navigation";
 
 class Main extends Component {
+  onItemSelected = async key => {
+    const selectedPlace = this.props.places.find(place => place.key === key);
+    this.props.navigation.navigate("PlaceDetail", {
+      selectedPlace: selectedPlace
+    });
+  };
+
   render() {
     const { places } = this.props;
 
     return (
       <View style={styles.container}>
-        <PlaceList places={places} onItemSelected={this.props.onItemSelected} />
+        <PlaceList places={places} onItemSelected={this.onItemSelected} />
       </View>
     );
   }
@@ -40,12 +43,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onAddPlace: name => dispatch(addPlace(name)),
-  onItemDeleted: () => dispatch(deletePlace()),
-  onItemSelected: key => dispatch(selectPlace(key)),
-  onDeselectPlace: () => dispatch(deselectPlace())
+  onItemDeleted: () => dispatch(deletePlace())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Main);
+export default withNavigation(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Main)
+);
