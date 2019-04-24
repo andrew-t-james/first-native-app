@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View, TextInput, Button } from "react-native";
+import { withNavigation } from "react-navigation";
 
 class PlaceInput extends Component {
   state = {
@@ -12,13 +13,14 @@ class PlaceInput extends Component {
     });
   };
 
-  placeSubmitHandler = () => {
+  placeSubmitHandler = async () => {
     if (this.state.placeName.trim() === "") {
       return;
     }
 
-    this.props.onPlaceAdded(this.state.placeName);
+    await this.props.onPlaceAdded(this.state.placeName);
     this.setState({ placeName: "" });
+    await this.props.navigation.navigate("Home");
   };
 
   render() {
@@ -59,4 +61,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PlaceInput;
+export default withNavigation(PlaceInput);
