@@ -6,6 +6,7 @@ import { Text, View, Button, StyleSheet, AsyncStorage } from "react-native";
 import {
   createSwitchNavigator,
   createStackNavigator,
+  createDrawerNavigator,
   createAppContainer,
   createBottomTabNavigator
 } from "react-navigation";
@@ -54,16 +55,30 @@ const TabNavigator = createBottomTabNavigator(
   }
 );
 
-export default createAppContainer(
-  createSwitchNavigator(
-    {
-      AuthLoading: AuthLoadingScreen,
-      App: TabNavigator,
-      Auth: AuthStack,
-      PlaceDetail: PlaceDetailScreen
-    },
-    {
-      initialRouteName: "AuthLoading"
-    }
-  )
-);
+const AppDrawerNavigator = createDrawerNavigator({
+  Dashboard: {
+    screen: Main
+  }
+});
+
+const AppSwitchNavigator = createStackNavigator({
+  SignIn: {
+    screen: SignInScreen
+  },
+  Dashboard: {
+    screen: AppDrawerNavigator
+  }
+});
+
+export default createAppContainer(AppSwitchNavigator);
+
+// createSwitchNavigator(
+//   {
+//     AuthLoading: AuthLoadingScreen,
+//     App: TabNavigator,
+//     Auth: AuthStack
+//   },
+//   {
+//     initialRouteName: "AuthLoading"
+//   }
+// )
