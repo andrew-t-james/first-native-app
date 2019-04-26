@@ -15,12 +15,6 @@ class PlaceDetail extends Component {
     const { name, image } = this.props.navigation.getParam("selectedPlace");
     return (
       <View style={styles.container}>
-        <Button
-          title="Back"
-          onPress={() => {
-            this.props.navigation.navigate("Home");
-          }}
-        />
         <View>
           <Image source={image} style={styles.placeImage} />
           <Text style={styles.placeName}>{name}</Text>
