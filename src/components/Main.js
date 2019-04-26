@@ -37,18 +37,12 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  places: state.places.places,
-  selectedPlace: state.places.selectedPlace
+  places: state.places.places
 });
 
-const mapDispatchToProps = dispatch => ({
-  onAddPlace: name => dispatch(addPlace(name)),
-  onItemDeleted: () => dispatch(deletePlace())
-});
+// const mapDispatchToProps = dispatch => ({
+//   onAddPlace: name => dispatch(addPlace(name)),
+//   onItemDeleted: () => dispatch(deletePlace())
+// });
 
-export default withNavigation(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Main)
-);
+export default withNavigation(connect(mapStateToProps)(Main));
