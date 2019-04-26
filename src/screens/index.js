@@ -23,7 +23,7 @@ const AuthStack = createStackNavigator({
   SignIn: SignInScreen
 });
 
-const TabNavigator = createBottomTabNavigator(
+const DashboardTabNavigator = createBottomTabNavigator(
   {
     Home: Main,
     SharePlace: SharePlaceScreen
@@ -51,34 +51,35 @@ const TabNavigator = createBottomTabNavigator(
     tabBarOptions: {
       activeTintColor: "tomato",
       inactiveTintColor: "gray"
+    },
+    navigationOptions: ({ navigation }) => {
+      const { routeName } = navigation.state.routes[navigation.state.index];
+      return {
+        headerTitle: routeName
+      };
     }
   }
 );
 
-const AppDrawerNavigator = createDrawerNavigator({
+const DashboardStackNavigator = createStackNavigator({
   Dashboard: {
-    screen: Main
+    screen: DashboardTabNavigator
   }
 });
 
-const AppSwitchNavigator = createStackNavigator({
+const AppDrawerNavigator = createDrawerNavigator({
+  Dashboard: {
+    screen: DashboardStackNavigator
+  }
+});
+
+const AppSwitchNavigator = createSwitchNavigator({
   SignIn: {
     screen: SignInScreen
   },
   Dashboard: {
-    screen: AppDrawerNavigator
+    screen: DashboardStackNavigator
   }
 });
 
 export default createAppContainer(AppSwitchNavigator);
-
-// createSwitchNavigator(
-//   {
-//     AuthLoading: AuthLoadingScreen,
-//     App: TabNavigator,
-//     Auth: AuthStack
-//   },
-//   {
-//     initialRouteName: "AuthLoading"
-//   }
-// )
