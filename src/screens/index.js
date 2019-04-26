@@ -78,7 +78,7 @@ const AppSwitchNavigator = createSwitchNavigator({
     screen: SignInScreen
   },
   Dashboard: {
-    screen: DashboardStackNavigator
+    screen: AppDrawerNavigator
   }
 });
 
