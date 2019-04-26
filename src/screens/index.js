@@ -64,8 +64,17 @@ const DashboardTabNavigator = createBottomTabNavigator(
 const DashboardStackNavigator = createStackNavigator({
   Dashboard: {
     screen: DashboardTabNavigator
+  },
+  PlaceDetail: {
+    screen: PlaceDetailScreen
   }
 });
+
+// const PlaceDetailStackNavigator = createStackNavigator({
+//   PlaceDetail: {
+//     screen: PlaceDetailScreen
+//   }
+// });
 
 const AppDrawerNavigator = createDrawerNavigator({
   Dashboard: {
