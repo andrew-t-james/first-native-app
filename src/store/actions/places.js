@@ -5,6 +5,7 @@ export const addPlace = placeName => ({
   placeName
 });
 
-export const deletePlace = () => ({
-  type: DELETE_PLACE
+export const deletePlace = key => ({
+  type: DELETE_PLACE,
+  key
 });
