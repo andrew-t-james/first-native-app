@@ -13,10 +13,10 @@ import { connect } from "react-redux";
 import { deletePlace } from "../store/actions";
 
 class PlaceDetail extends Component {
-  onPlaceDeleted = async () => {
+  onPlaceDeleted = () => {
     const { key } = this.props.navigation.getParam("selectedPlace");
-    await this.props.onDeletePlace(key);
-    this.props.navigation.navigate("Home");
+    this.props.onDeletePlace(key);
+    this.props.navigation.pop();
   };
 
   render() {
