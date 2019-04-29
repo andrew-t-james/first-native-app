@@ -61,14 +61,28 @@ const DashboardTabNavigator = createBottomTabNavigator(
   }
 );
 
-const DashboardStackNavigator = createStackNavigator({
-  Dashboard: {
-    screen: DashboardTabNavigator
+const DashboardStackNavigator = createStackNavigator(
+  {
+    Dashboard: {
+      screen: DashboardTabNavigator
+    },
+    PlaceDetail: {
+      screen: PlaceDetailScreen
+    }
   },
-  PlaceDetail: {
-    screen: PlaceDetailScreen
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      headerLeft: (
+        <Ionicons
+          onPress={() => navigation.openDrawer()}
+          style={{ paddingLeft: 20 }}
+          size={30}
+          name="ios-menu"
+        />
+      )
+    })
   }
-});
+);
 
 const AppDrawerNavigator = createDrawerNavigator({
   Dashboard: {
