@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  View,
-  Image,
-  Text,
-  Button,
-  StyleSheet,
-  TouchableOpacity
-} from "react-native";
+import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { withNavigation } from "react-navigation";
 import { connect } from "react-redux";
