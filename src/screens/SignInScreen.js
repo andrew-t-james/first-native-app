@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, Button, AsyncStorage, StyleSheet } from "react-native";
 import DefaultInput from "../components/UI/DefaultInput";
 
-class SignInScreen extends React.Component {
+class SignInScreen extends Component {
   signInAsync = async () => {
     await AsyncStorage.setItem("userToken", "abc");
     this.props.navigation.navigate("Dashboard");
@@ -16,9 +16,9 @@ class SignInScreen extends React.Component {
           onPress={() => this.props.navigation.navigate("Dashboard")}
         />
         <View style={styles.inputContainer}>
-          <DefaultInput placeholder="Email" />
-          <DefaultInput placeholder="Password" />
-          <DefaultInput placeholder="Confirm Password" />
+          <DefaultInput placeholder="Email" style={styles.input} />
+          <DefaultInput placeholder="Password" style={styles.input} />
+          <DefaultInput placeholder="Confirm Password" style={styles.input} />
         </View>
         <Button
           title="Sign up!"
@@ -37,6 +37,10 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     width: "80%"
+  },
+  input: {
+    backgroundColor: "#eee",
+    borderColor: "#bbb"
   }
 });
 
