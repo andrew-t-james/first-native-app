@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import PlaceList from "./PlaceList";
-import { addPlace, deletePlace } from "../store/actions/";
 import { withNavigation } from "react-navigation";
 
 class Main extends Component {
@@ -18,7 +17,11 @@ class Main extends Component {
 
     return (
       <View style={styles.container}>
-        <PlaceList places={places} onItemSelected={this.onItemSelected} />
+        {places.length ? (
+          <PlaceList places={places} onItemSelected={this.onItemSelected} />
+        ) : (
+          <Text>No Places to share :( </Text>
+        )}
       </View>
     );
   }
@@ -39,10 +42,5 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   places: state.places.places
 });
-
-// const mapDispatchToProps = dispatch => ({
-//   onAddPlace: name => dispatch(addPlace(name)),
-//   onItemDeleted: () => dispatch(deletePlace())
-// });
 
 export default withNavigation(connect(mapStateToProps)(Main));
