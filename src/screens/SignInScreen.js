@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Button, AsyncStorage, StyleSheet } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
+import DefaultInput from "../components/UI/DefaultInput";
 
 class SignInScreen extends React.Component {
   signInAsync = async () => {
@@ -15,9 +15,11 @@ class SignInScreen extends React.Component {
           title="Login/Signup"
           onPress={() => this.props.navigation.navigate("Dashboard")}
         />
-        <TextInput placeholder="Your email" />
-        <TextInput placeholder="Password" />
-        <TextInput placeholder="Confirm Password" />
+        <View style={styles.inputContainer}>
+          <DefaultInput placeholder="Email" />
+          <DefaultInput placeholder="Password" />
+          <DefaultInput placeholder="Confirm Password" />
+        </View>
         <Button
           title="Sign up!"
           onPress={() => this.props.navigation.navigate("Dashboard")}
@@ -32,6 +34,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  inputContainer: {
+    width: "80%"
   }
 });
 
