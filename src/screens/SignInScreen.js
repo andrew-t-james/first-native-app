@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Button, AsyncStorage, StyleSheet } from "react-native";
 import DefaultInput from "../components/UI/DefaultInput";
+import HeadingText from "../components/UI/HeadingText";
 
 class SignInScreen extends Component {
   signInAsync = async () => {
@@ -11,6 +12,7 @@ class SignInScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <HeadingText>Please Login</HeadingText>
         <Button
           title="Login/Signup"
           onPress={() => this.props.navigation.navigate("Dashboard")}
