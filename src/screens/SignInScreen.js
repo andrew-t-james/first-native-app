@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import DefaultInput from "../components/UI/DefaultInput";
 import HeadingText from "../components/UI/HeadingText";
-import MainText from "../components/UI/MainText";
 import beach from "../assets/beach.jpg";
 
 class SignInScreen extends Component {
