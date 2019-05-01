@@ -55,6 +55,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
     navigationOptions: ({ navigation }) => {
       const { routeName } = navigation.state.routes[navigation.state.index];
       return {
+        header: null,
         headerTitle: routeName
       };
     }
@@ -72,10 +73,10 @@ const DashboardStackNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
-      headerLeft: (
+      headerRight: (
         <Ionicons
           onPress={() => navigation.openDrawer()}
-          style={{ paddingLeft: 20 }}
+          style={{ paddingRight: 20 }}
           size={30}
           name="ios-menu"
         />
@@ -84,11 +85,16 @@ const DashboardStackNavigator = createStackNavigator(
   }
 );
 
-const AppDrawerNavigator = createDrawerNavigator({
-  Dashboard: {
-    screen: DashboardStackNavigator
+const AppDrawerNavigator = createDrawerNavigator(
+  {
+    Dashboard: {
+      screen: DashboardStackNavigator
+    }
+  },
+  {
+    drawerPosition: "right"
   }
-});
+);
 
 const AppSwitchNavigator = createSwitchNavigator({
   SignIn: {
