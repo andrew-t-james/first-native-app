@@ -21,9 +21,9 @@ class SignInScreen extends Component {
     return (
       <ImageBackground source={beach} style={styles.imageBackground}>
         <View style={styles.container}>
-          <MainText>
+          <HeadingText style={styles.signInHeading}>
             <HeadingText>Please Login</HeadingText>
-          </MainText>
+          </HeadingText>
           <Button
             title="Login/Signup"
             onPress={() => this.props.navigation.navigate("Dashboard")}
@@ -59,6 +59,9 @@ const styles = StyleSheet.create({
   imageBackground: {
     flex: 1,
     width: "100%"
+  },
+  signInHeading: {
+    color: "#000"
   }
 });
 
