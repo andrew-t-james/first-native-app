@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text, Button, TextInput } from "react-native";
 
 import PlaceInput from "../components/PlaceInput";
 import { addPlace } from "../store/actions";
@@ -8,7 +8,17 @@ import { addPlace } from "../store/actions";
 const SharePlace = ({ onPlaceAdded }) => {
   return (
     <View style={styles.container}>
-      <PlaceInput onPlaceAdded={onPlaceAdded} />
+      <Text>Share Place</Text>
+      <View>
+        <Text>Image Preview</Text>
+      </View>
+      <Button title="Pick Image" />
+      <View>
+        <Text>Map</Text>
+      </View>
+      <Button title="Locate me" />
+      <TextInput placeholder="Place Menu" />
+      <Button title="Share this place" />
     </View>
   );
 };
