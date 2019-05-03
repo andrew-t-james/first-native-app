@@ -8,19 +8,19 @@ import { addPlace } from "../store/actions";
 
 const SharePlace = ({ onPlaceAdded }) => {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Text>Share Place</Text>
-      <View>
+      <View style={styles.placeHolder}>
         <Text>Image Preview</Text>
       </View>
       <Button title="Pick Image" />
-      <View>
+      <View style={styles.placeHolder}>
         <Text>Map</Text>
       </View>
       <Button title="Locate me" />
-      <TextInput placeholder="Place Menu" />
+      <DefaultInput placeholder="Place Menu" />
       <Button title="Share this place" />
-    </View>
+    </ScrollView>
   );
 };
 
@@ -31,7 +31,13 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    padding: 40
+    padding: 20
+  },
+  placeHolder: {
+    borderWidth: 1,
+    width: "100%",
+    height: 150,
+    backgroundColor: "#eee"
   }
 });
 
