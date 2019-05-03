@@ -13,13 +13,19 @@ const SharePlace = ({ onPlaceAdded }) => {
       <View style={styles.placeHolder}>
         <Text>Image Preview</Text>
       </View>
-      <Button title="Pick Image" />
+      <View style={styles.buttonWrapper}>
+        <Button title="Pick Image" />
+      </View>
       <View style={styles.placeHolder}>
         <Text>Map</Text>
       </View>
-      <Button title="Locate me" />
+      <View style={styles.buttonWrapper}>
+        <Button title="Locate me" />
+      </View>
       <DefaultInput placeholder="Place Menu" />
-      <Button title="Share this place" />
+      <View style={styles.buttonWrapper}>
+        <Button title="Share this place" />
+      </View>
     </ScrollView>
   );
 };
@@ -31,13 +37,17 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    padding: 20
+    padding: 40,
+    marginTop: 20
   },
   placeHolder: {
     borderWidth: 1,
     width: "100%",
-    height: 150,
+    height: 250,
     backgroundColor: "#eee"
+  },
+  buttonWrapper: {
+    margin: 10
   }
 });
 
