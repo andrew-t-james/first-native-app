@@ -4,7 +4,7 @@ import { Touchable, View, Text, StyleSheet } from "react-native";
 const ButtonWithBackground = props => {
   return (
     <Touchable onPress={() => props.onPress}>
-      <View style={styles.button}>
+      <View style={[styles.button, { backgroundColor: props.color }]}>
         <Text>{props.children}</Text>
       </View>
     </Touchable>
