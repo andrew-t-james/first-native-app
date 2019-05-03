@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import DefaultInput from "../components/UI/DefaultInput";
 import HeadingText from "../components/UI/HeadingText";
+import ButtonWithBackground from "../components/UI/ButtonWithBackground";
 import beach from "../assets/beach.jpg";
 
 class SignInScreen extends Component {
@@ -23,19 +24,23 @@ class SignInScreen extends Component {
           <HeadingText style={styles.signInHeading}>
             <HeadingText>Please Login</HeadingText>
           </HeadingText>
-          <Button
-            title="Login/Signup"
+          <ButtonWithBackground
+            color="#29aaf4"
             onPress={() => this.props.navigation.navigate("Dashboard")}
-          />
+          >
+            Login/Signup
+          </ButtonWithBackground>
           <View style={styles.inputContainer}>
             <DefaultInput placeholder="Email" style={styles.input} />
             <DefaultInput placeholder="Password" style={styles.input} />
             <DefaultInput placeholder="Confirm Password" style={styles.input} />
           </View>
-          <Button
-            title="Sign up!"
+          <ButtonWithBackground
+            color="#29aaf4"
             onPress={() => this.props.navigation.navigate("Dashboard")}
-          />
+          >
+            Sign up!
+          </ButtonWithBackground>
         </View>
       </ImageBackground>
     );
