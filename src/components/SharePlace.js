@@ -2,22 +2,23 @@ import React from "react";
 import { connect } from "react-redux";
 import { View, StyleSheet, Text, Button, ScrollView } from "react-native";
 
-import PlaceInput from "../components/PlaceInput";
 import DefaultInput from "../components/UI/DefaultInput";
+import HeadingText from "../components/UI/HeadingText";
+import MainText from "../components/UI/MainText";
 import { addPlace } from "../store/actions";
 
 const SharePlace = ({ onPlaceAdded }) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text>Share Place</Text>
+      <HeadingText>Share Place</HeadingText>
       <View style={styles.placeHolder}>
-        <Text>Image Preview</Text>
+        <MainText>Image Preview</MainText>
       </View>
       <View style={styles.buttonWrapper}>
         <Button title="Pick Image" />
       </View>
       <View style={styles.placeHolder}>
-        <Text>Map</Text>
+        <MainText>Map</MainText>
       </View>
       <View style={styles.buttonWrapper}>
         <Button title="Locate me" />
