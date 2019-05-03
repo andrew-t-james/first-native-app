@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { View, StyleSheet, Text, Button, TextInput } from "react-native";
+import { View, StyleSheet, Text, Button, ScrollView } from "react-native";
 
 import PlaceInput from "../components/PlaceInput";
+import DefaultInput from "../components/UI/DefaultInput";
 import { addPlace } from "../store/actions";
 
 const SharePlace = ({ onPlaceAdded }) => {
