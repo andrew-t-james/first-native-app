@@ -9,7 +9,6 @@ import {
   Image
 } from "react-native";
 
-import DefaultInput from "../components/UI/DefaultInput";
 import HeadingText from "../components/UI/HeadingText";
 import MainText from "../components/UI/MainText";
 import { addPlace } from "../store/actions";
@@ -33,10 +32,10 @@ const SharePlace = ({ onPlaceAdded }) => {
       <View style={styles.buttonWrapper}>
         <Button title="Locate me" />
       </View>
-      <DefaultInput placeholder="Place Menu" />
+      {/* <DefaultInput placeholder="Place Menu" />
       <View style={styles.buttonWrapper}>
-        {/* <Button onPress={() => onPlaceAdded()} title="Share this place" /> */}
-      </View>
+        <Button onPress={() => onPlaceAdded()} title="Share this place" />
+      </View> */}
     </ScrollView>
   );
 };
