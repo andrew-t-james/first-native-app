@@ -1,11 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
-import { View, StyleSheet, Text, Button, ScrollView } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Button,
+  ScrollView,
+  Image
+} from "react-native";
 
 import DefaultInput from "../components/UI/DefaultInput";
 import HeadingText from "../components/UI/HeadingText";
 import MainText from "../components/UI/MainText";
 import { addPlace } from "../store/actions";
+import Place from "../assets/beach.jpg";
 
 const SharePlace = ({ onPlaceAdded }) => {
   return (
@@ -14,7 +22,7 @@ const SharePlace = ({ onPlaceAdded }) => {
         <HeadingText>Share Place</HeadingText>
       </MainText>
       <View style={styles.placeHolder}>
-        <Text>Image Preview</Text>
+        <Image source={Place} style={styles.previewImage} />
       </View>
       <View style={styles.buttonWrapper}>
         <Button title="Pick Image" />
@@ -42,6 +50,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
     marginTop: 20
+  },
+  previewImage: {
+    height: "100%",
+    width: "100%"
   },
   placeHolder: {
     borderWidth: 1,
