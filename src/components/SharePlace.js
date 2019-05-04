@@ -27,7 +27,7 @@ const SharePlace = ({ onPlaceAdded }) => {
       </View>
       <DefaultInput placeholder="Place Menu" />
       <View style={styles.buttonWrapper}>
-        <Button title="Share this place" />
+        {/* <Button onPress={() => onPlaceAdded()} title="Share this place" /> */}
       </View>
     </ScrollView>
   );
