@@ -85,6 +85,7 @@ const DashboardStackNavigator = createStackNavigator(
   }
 );
 
+// TODO rethink drawer navigation setup
 const AppDrawerNavigator = createDrawerNavigator(
   {
     Dashboard: {
